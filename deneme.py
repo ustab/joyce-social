@@ -1,16 +1,16 @@
 import streamlit as st
 
 # Sayfa Ayarları
-st.set_page_config(page_title="EVEYES 360 - Joyce Social", page_icon="🚀")
+st.set_page_config(page_title="Burhanettin Social", page_icon="🚀")
 
 # Başlık ve Dil Seçeneği
-st.title("🚀 Joyce Social Page")
+st.title("🚀 Burhanettin Social Page")
 dil = st.sidebar.selectbox("Dil Seçiniz / Select Language", ["Türkçe", "English", "Español", "Français", "Yoruba"])
 
 # Basit Veri Saklama (Session State)
 if 'posts' not in st.session_state:
     st.session_state.posts = [
-        {"user": "Joyce_Client", "content": "Harika bir arayüz oldu! 😍", "likes": 120},
+        {"user": "Burhanettin", "content": "Harika bir arayüz oldu! 😍", "likes": 120},
         {"user": "EVEYES_360", "content": "Geleceğin teknolojisini kodluyoruz.", "likes": 360}
     ]
 
@@ -21,7 +21,7 @@ with st.form("post_form"):
     submitted = st.form_submit_button("sharing")
     if submitted and user and content:
         st.session_state.posts.append({"user": user, "content": content, "likes": 0})
-        st.success("Gönderi Paylaşıldı!")
+        st.success("shared!")
 
 # Akışı Gösterme
 st.subheader("📱 NEWS")
@@ -34,6 +34,7 @@ for i, post in enumerate(st.session_state.posts):
             post['likes'] += 1
             st.rerun()
         st.divider()
+
 
 
 
