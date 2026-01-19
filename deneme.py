@@ -4,7 +4,7 @@ import streamlit as st
 st.set_page_config(page_title="EVEYES 360 - Joyce Social", page_icon="🚀")
 
 # Başlık ve Dil Seçeneği
-st.title("🚀 Joyce Social Projesi")
+st.title("🚀 Joyce Social Page")
 dil = st.sidebar.selectbox("Dil Seçiniz / Select Language", ["Türkçe", "English", "Español", "Français", "Yoruba"])
 
 # Basit Veri Saklama (Session State)
@@ -16,15 +16,15 @@ if 'posts' not in st.session_state:
 
 # Gönderi Paylaşma Alanı
 with st.form("post_form"):
-    user = st.text_input("Kullanıcı Adı")
-    content = st.text_area("Ne düşünüyorsun?")
-    submitted = st.form_submit_button("Paylaş")
+    user = st.text_input("User_Name")
+    content = st.text_area("Comment")
+    submitted = st.form_submit_button("sharing")
     if submitted and user and content:
         st.session_state.posts.append({"user": user, "content": content, "likes": 0})
         st.success("Gönderi Paylaşıldı!")
 
 # Akışı Gösterme
-st.subheader("📱 Haber Akışı")
+st.subheader("📱 NEWS")
 for i, post in enumerate(st.session_state.posts):
     with st.container():
         st.write(f"### 👤 @{post['user']}")
@@ -34,5 +34,6 @@ for i, post in enumerate(st.session_state.posts):
             post['likes'] += 1
             st.rerun()
         st.divider()
+
 
 
