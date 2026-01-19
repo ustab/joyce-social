@@ -1,4 +1,3 @@
-writefile app.py
 import streamlit as st
 
 # Sayfa Ayarları
@@ -35,4 +34,5 @@ for i, post in enumerate(st.session_state.posts):
             post['likes'] += 1
             st.rerun()
         st.divider()
+
 
