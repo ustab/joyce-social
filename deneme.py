@@ -4,7 +4,7 @@ import streamlit as st
 st.set_page_config(page_title="Burhanettin Social", page_icon="🚀")
 
 # Başlık ve Dil Seçeneği
-st.title("🚀 Burhanettin Social Page")
+st.title("🚀 Burhanettin's Place")
 dil = st.sidebar.selectbox("Dil Seçiniz / Select Language", ["Türkçe", "English", "Español", "Français", "Yoruba"])
 
 # Basit Veri Saklama (Session State)
@@ -34,6 +34,7 @@ for i, post in enumerate(st.session_state.posts):
             post['likes'] += 1
             st.rerun()
         st.divider()
+
 
 
 
